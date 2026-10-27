@@ -203,13 +203,13 @@ img{max-width:100%;display:block}
           </div>
           <button class="iconbtn" id="searchToggleBtn" type="button" aria-label="Search"></button>
           <a class="iconbtn" id="locBtn" href="#" target="_blank" rel="noopener" aria-label="Location"></a>
+          <button class="iconbtn" id="musicToggle" type="button" aria-label="Music" title="Pause Music"><span id="musicIcon"></span></button>
           <div style="position:relative">
             <button class="iconbtn" id="menuToggleBtn" type="button" aria-label="Menu"></button>
             <div class="menu-panel" id="menuPanel">
               <a href="#" id="callBtnV2" class="mp-row"><span class="mpic"></span>Call Us</a>
               <a href="#" id="igBtnV2" target="_blank" rel="noopener" class="mp-row"><span class="mpic"></span>Instagram</a>
               <button type="button" id="qrBtnV2" class="mp-row"><span class="mpic"></span>Table QR</button>
-              <button type="button" id="musicToggle" class="mp-row"><span class="mpic" id="musicIcon"></span><span id="musicLabel">Pause Music</span></button>
             </div>
           </div>
         </div>
@@ -732,10 +732,10 @@ document.addEventListener('DOMContentLoaded', function(){
     var label=document.getElementById('musicLabel');
     var playing=false;
     var unmuteTimer=null;
-    function setIcon(){ if(!btn) return; if(icon) icon.innerHTML = playing?ICONS.speaker:ICONS.music; if(label) label.textContent = playing?'Pause Music':'Play Music'; }
+    function setIcon(){ if(!btn) return; if(icon) icon.innerHTML = playing?ICONS.speaker:ICONS.music; if(label) label.textContent = playing?'Pause Music':'Play Music'; btn.title = playing?'Pause Music':'Play Music'; }
     function tryAutoplay(){
       try{
-        audio.volume=0.3;
+        audio.volume=0.15;
         audio.muted=true;
         var p=audio.play();
         if(p&&p.then){
