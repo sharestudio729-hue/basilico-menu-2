@@ -643,7 +643,7 @@ function applyLiveMenu(items){
   LIVE_PHOTOS = {};
   LIVE_META = {};
   items.forEach(function(it){
-    MENU.push({ id: it.id, name: it.name, category: it.category, price: it.price });
+    MENU.push({ id: it.id, name: it.name, category: it.category, price: it.price, desc: it.desc || null });
     if(it.photo) LIVE_PHOTOS[it.id] = it.photo;
     LIVE_META[it.id] = { available: it.available !== false, stock: (typeof it.stock==='number' ? it.stock : null) };
   });
