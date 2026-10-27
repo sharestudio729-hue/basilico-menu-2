@@ -49,6 +49,7 @@ module.exports = async (req, res) => {
         category,
         price: clampPrice(body.price),
         photo: typeof body.photo === 'string' && body.photo ? body.photo : null,
+        desc: typeof body.desc === 'string' && body.desc.trim() ? body.desc.trim() : null,
         available: body.available === false ? false : true,
         stock: clampStock(body.stock),
       };
@@ -75,6 +76,7 @@ module.exports = async (req, res) => {
       if (typeof body.category === 'string' && body.category.trim()) fields.category = body.category.trim();
       if (body.price !== undefined) fields.price = clampPrice(body.price);
       if (typeof body.photo === 'string' && body.photo) fields.photo = body.photo;
+      if (typeof body.desc === 'string') fields.desc = body.desc.trim();
       if (typeof body.available === 'boolean') fields.available = body.available;
       if (body.stock !== undefined) fields.stock = clampStock(body.stock);
 
